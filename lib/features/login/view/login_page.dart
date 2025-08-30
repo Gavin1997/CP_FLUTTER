@@ -1,7 +1,7 @@
 /*
  * @Author: test
  * @Date: 2025-08-30 13:45:35
- * @LastEditTime: 2025-08-30 18:12:17
+ * @LastEditTime: 2025-08-30 23:47:16
  * @FilePath: /flutter_starter/lib/features/login/view/login_page.dart
  * @Description: 
  */
@@ -9,10 +9,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../core/router/app_router.dart';
 import '../../../common/widgets/app_button.dart';
 import '../view_model/login_view_model.dart';
 
 /// 登录页面
+
 class LoginPage extends ConsumerStatefulWidget {
   const LoginPage({super.key});
 
@@ -39,22 +41,23 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     final loginNotifier = ref.read(loginViewModelProvider.notifier);
 
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.all(24.w),
+      extendBodyBehindAppBar: true, // 让背景扩展到整个屏幕
+      backgroundColor: Colors.transparent, // 设置背景透明，让背景图片显示
+      body: Padding(
+        padding: EdgeInsets.all(24.w),
+        child: SingleChildScrollView(
           child: Form(
             key: _formKey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 SizedBox(height: 60.h),
-                
+
                 // Logo 和标题
                 Center(
                   child: Column(
                     children: [
-                       Text(
+                      Text(
                         '欢迎回到磕星人',
                         style: Theme.of(context).textTheme.headlineMedium,
                       ),
@@ -65,7 +68,6 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                         decoration: BoxDecoration(
                           color: Theme.of(context).colorScheme.surface,
                           borderRadius: BorderRadius.circular(14.r),
-                          
                         ),
                         child: Image.asset(
                           'assets/images/logo.png',
@@ -74,21 +76,19 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                           fit: BoxFit.contain,
                         ),
                       ),
-                   
-                     
                       SizedBox(height: 8.h),
                       Text(
                         '请登录您的账户',
                         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                          color: Colors.grey[600],
-                        ),
+                              color: Colors.grey[600],
+                            ),
                       ),
                     ],
                   ),
                 ),
-                
+
                 SizedBox(height: 48.h),
-                
+
                 // 用户名输入框
                 TextFormField(
                   controller: _usernameController,
@@ -104,9 +104,9 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     return null;
                   },
                 ),
-                
+
                 SizedBox(height: 16.h),
-                
+
                 // 密码输入框
                 TextFormField(
                   controller: _passwordController,
@@ -117,7 +117,9 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     prefixIcon: const Icon(Icons.lock_outline),
                     suffixIcon: IconButton(
                       icon: Icon(
-                        _obscurePassword ? Icons.visibility_off : Icons.visibility,
+                        _obscurePassword
+                            ? Icons.visibility_off
+                            : Icons.visibility,
                       ),
                       onPressed: () {
                         setState(() {
@@ -136,18 +138,18 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     return null;
                   },
                 ),
-                
+
                 SizedBox(height: 24.h),
-                
+
                 // 登录按钮
                 AppButton.primary(
                   text: '登录',
                   isLoading: loginState.isLoading,
                   onPressed: () => _handleLogin(loginNotifier),
                 ),
-                
+
                 SizedBox(height: 16.h),
-                
+
                 // 忘记密码
                 Center(
                   child: TextButton(
@@ -163,9 +165,9 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     ),
                   ),
                 ),
-                
+
                 const Spacer(),
-                
+
                 // 注册提示
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -180,6 +182,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     TextButton(
                       onPressed: () {
                         // TODO: 跳转到注册页面
+                        AppNavigator.toRegister();
                       },
                       child: Text(
                         '立即注册',

@@ -111,7 +111,7 @@ class RegisterViewModel extends StateNotifier<RegisterState> {
 }
 
 /// 注册 ViewModel Provider
-final RegisterViewModelProvider =
+final registerViewModelProvider =
     StateNotifierProvider<RegisterViewModel, RegisterState>((ref) {
   return RegisterViewModel();
 });

@@ -1,7 +1,7 @@
 /*
  * @Author: test
  * @Date: 2025-08-30 13:45:35
- * @LastEditTime: 2025-08-30 15:20:19
+ * @LastEditTime: 2025-08-30 23:49:45
  * @FilePath: /flutter_starter/lib/app.dart
  * @Description: 
  */
@@ -19,28 +19,29 @@ class App extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final appRouter = ref.watch(appRouterProvider);
-    
+
     return MaterialApp.router(
       title: '磕星人CP',
       debugShowCheckedModeBanner: false,
-      
+
       // 主题配置
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
-      
+
       // 国际化配置
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      
+
       // 路由配置
       routerConfig: appRouter,
-      
+
       // 全局构建器
       builder: (context, child) {
         return MediaQuery(
           // 禁止系统字体缩放
-          data: MediaQuery.of(context).copyWith(textScaler: const TextScaler.linear(1.0)),
+          data: MediaQuery.of(context)
+              .copyWith(textScaler: const TextScaler.linear(1.0)),
           child: child ?? const SizedBox.shrink(),
         );
       },

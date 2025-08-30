@@ -41,6 +41,7 @@ dependencies:
   intl: any
 
 
+
 # Flutter Launcher Icons 配置
 # flutter pub run flutter_launcher_icons
 flutter_launcher_icons:
@@ -96,7 +97,6 @@ dev_dependencies:
   flutter_lints: ^3.0.0
   
   # 代码生成
-  auto_route_generator: ^7.3.2
   build_runner: ^2.4.7
   hive_generator: ^2.0.1
   json_annotation: ^4.8.1

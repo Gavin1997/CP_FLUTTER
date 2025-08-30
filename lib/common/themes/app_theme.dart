@@ -7,55 +7,55 @@ class AppTheme {
   static const Color primaryColor = Color(0xFFED99DE);
   static const Color primaryColorDark = Color(0xFFED99DE);
   static const Color primaryColorLight = Color(0xFFFDD6FE);
-  
+
   // 辅助色
   static const Color accentColor = Color(0xFFFF4081);
   static const Color backgroundColor = Color(0xFFF5F5F5);
   static const Color surfaceColor = Colors.white;
-  
+
   // 渐变色
   static const LinearGradient primaryGradient = LinearGradient(
     colors: [Color(0xFF2196F3), Color(0xFF1976D2)],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
   );
-  
+
   static const LinearGradient accentGradient = LinearGradient(
     colors: [Color(0xFFFF4081), Color(0xFFE91E63)],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
   );
-  
+
   static const LinearGradient softGradient = LinearGradient(
     colors: [Color(0xFFE3F2FD), Color(0xFFBBDEFB)],
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
   );
-  
+
   // 容器背景色选项
   static const Color containerPrimary = Color(0xFFE3F2FD);
   static const Color containerSecondary = Color(0xFFF3E5F5);
   static const Color containerAccent = Color(0xFFFCE4EC);
   static const Color containerNeutral = Color(0xFFF5F5F5);
-  
+
   // 阴影色
   static const Color shadowLight = Color(0x1A000000);
   static const Color shadowMedium = Color(0x33000000);
-  
+
   // 文字颜色
   static const Color textPrimary = Color(0xFF212121);
   static const Color textSecondary = Color(0xFF757575);
   static const Color textHint = Color(0xFF9E9E9E);
-  
+
   // 分割线颜色
   static const Color dividerColor = Color(0xFFE0E0E0);
-  
+
   /// 浅色主题
   static ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.light,
-      
+
       // 颜色方案
       colorScheme: const ColorScheme.light(
         primary: primaryColor,
@@ -63,10 +63,10 @@ class AppTheme {
         surface: surfaceColor,
         error: Colors.red,
       ),
-      
+
       // AppBar 主题
       appBarTheme: AppBarTheme(
-        backgroundColor: surfaceColor,
+        backgroundColor: Colors.transparent, // 设置为透明，让背景图片显示出来
         foregroundColor: textPrimary,
         elevation: 0,
         centerTitle: true,
@@ -76,7 +76,7 @@ class AppTheme {
           fontWeight: FontWeight.w600,
         ),
       ),
-      
+
       // 文字主题
       textTheme: TextTheme(
         displayLarge: TextStyle(
@@ -140,7 +140,7 @@ class AppTheme {
           color: textHint,
         ),
       ),
-      
+
       // 按钮主题
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
@@ -156,7 +156,7 @@ class AppTheme {
           ),
         ),
       ),
-      
+
       // 输入框主题
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
@@ -183,7 +183,7 @@ class AppTheme {
           fontSize: 14.sp,
         ),
       ),
-      
+
       // 卡片主题
       cardTheme: CardThemeData(
         color: surfaceColor,
@@ -193,7 +193,7 @@ class AppTheme {
         ),
         margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
       ),
-      
+
       // 分割线主题
       dividerTheme: const DividerThemeData(
         color: dividerColor,
@@ -201,13 +201,13 @@ class AppTheme {
       ),
     );
   }
-  
+
   /// 深色主题
   static ThemeData get darkTheme {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.dark,
-      
+
       // 颜色方案
       colorScheme: const ColorScheme.dark(
         primary: primaryColorLight,
@@ -215,7 +215,7 @@ class AppTheme {
         surface: Color(0xFF1E1E1E),
         error: Colors.redAccent,
       ),
-      
+
       // 其他主题配置与浅色主题类似，但使用深色配色
       // 这里简化处理，实际项目中可以详细配置
     );
