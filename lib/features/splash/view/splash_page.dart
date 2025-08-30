@@ -24,9 +24,9 @@ class _SplashPageState extends ConsumerState<SplashPage> {
   Future<void> _initApp() async {
     // 延迟 2 秒显示启动页
     await Future.delayed(const Duration(seconds: 2));
-    
+
     if (!mounted) return;
-    
+
     // 检查登录状态并跳转
     final isLoggedIn = await StorageManager.isLoggedIn();
     if (isLoggedIn) {
@@ -59,38 +59,39 @@ class _SplashPageState extends ConsumerState<SplashPage> {
                   ),
                 ],
               ),
-              child: Icon(
-                Icons.flash_on,
-                size: 60.sp,
-                color: Theme.of(context).colorScheme.primary,
+              child: Image.asset(
+                'assets/images/logo.png',
+                width: 50.w,
+                height: 50.h,
+                fit: BoxFit.contain,
               ),
             ),
-            
+
             SizedBox(height: 32.h),
-            
+
             // 应用名称
             Text(
-              'Flutter Rapid',
+              '磕星人CP',
               style: TextStyle(
                 fontSize: 28.sp,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
             ),
-            
+
             SizedBox(height: 8.h),
-            
+
             // 副标题
             Text(
-              '快速开发框架',
+              '磕CP的首选平台',
               style: TextStyle(
                 fontSize: 16.sp,
                 color: Colors.white.withValues(alpha: 0.8),
               ),
             ),
-            
+
             SizedBox(height: 64.h),
-            
+
             // 加载指示器
             const CircularProgressIndicator(
               valueColor: AlwaysStoppedAnimation<Color>(Colors.white),

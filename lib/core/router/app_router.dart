@@ -63,22 +63,18 @@ class AppRouter {
     redirect: (context, state) async {
       final isLoggedIn = await StorageManager.isLoggedIn();
       final currentPath = state.uri.path;
-      
-      // 如果在启动页，根据登录状态跳转
-      if (currentPath == splash) {
-        return isLoggedIn ? home : login;
-      }
-      
-      // 如果未登录且不在登录页，跳转到登录页
-      if (!isLoggedIn && currentPath != login) {
+
+      // 移除启动页的重定向，让启动页自己处理跳转逻辑
+      // 如果未登录且不在登录页且不在启动页，跳转到登录页
+      if (!isLoggedIn && currentPath != login && currentPath != splash) {
         return login;
       }
-      
+
       // 如果已登录且在登录页，跳转到主页
       if (isLoggedIn && currentPath == login) {
         return home;
       }
-      
+
       return null; // 不需要重定向
     },
     

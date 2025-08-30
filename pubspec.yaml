@@ -32,11 +32,63 @@ dependencies:
   # 工具类
   logger: ^2.0.2+1
   fluttertoast: ^8.2.4
-  
+  flutter_launcher_icons: ^0.14.4 #app图标
+  flutter_native_splash: ^2.4.6 #启动图
+
   # 国际化
   flutter_localizations:
     sdk: flutter
   intl: any
+
+
+# Flutter Launcher Icons 配置
+# flutter pub run flutter_launcher_icons
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/images/app_icon/icon-1024.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  web:
+    generate: true
+    image_path: "assets/images/app_icon/icon-1024.png"
+    background_color: "#ffffff"
+    theme_color: "#ffffff"
+  windows:
+    generate: true
+    image_path: "assets/images/app_icon/icon-1024.png"
+    icon_size: 48 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path: "assets/images/app_icon/icon-1024.png"
+
+# Flutter Native Splash 启动页配置
+#  flutter pub run flutter_native_splash:create
+flutter_native_splash:
+  # 启动页背景图片
+  image: assets/images/launch/startBg.png
+  # 背景颜色（如果图片没有覆盖整个屏幕）
+  color: "#000000"
+  # 图片填充模式
+  image_dark: assets/images/launch/startBg.png
+  color_dark: "#000000"
+  # 是否全屏显示
+  fullscreen: true
+  # 是否显示状态栏
+  android_12:
+    image: assets/images/launch/startBg.png
+    icon_background_color: "#000000"
+    image_dark: assets/images/launch/startBg.png
+    icon_background_color_dark: "#000000"
+  # iOS配置
+  ios: true
+  # Android配置
+  android: true
+  # Web配置
+  web: false
+  # 防止白色闪烁的配置
+  android_gravity: center
+  ios_content_mode: center
 
 dev_dependencies:
   flutter_test:
@@ -57,6 +109,8 @@ flutter:
     - assets/images/
     - assets/images/bar/
     - assets/icons/
+    - assets/images/launch/
+    - assets/images/app_icon/
 
   fonts:
     - family: PingFang
@@ -65,3 +119,10 @@ flutter:
           weight: 500
         - asset: assets/fonts/PingFang-Bold.ttf
           weight: 700
+
+
+flutter_assets:
+  assets_path: assets/images/
+  output_path: lib/
+  filename: r.dart
+  classname: R
