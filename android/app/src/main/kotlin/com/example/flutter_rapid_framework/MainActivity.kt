@@ -1,4 +1,4 @@
-package com.example.flutter_rapid_framework
+package com.example.kxrcp
 
 import io.flutter.embedding.android.FlutterActivity
 

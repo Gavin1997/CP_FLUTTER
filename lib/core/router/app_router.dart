@@ -5,6 +5,8 @@ import 'package:go_router/go_router.dart';
 import '../../features/login/view/login_page.dart';
 import '../../features/home/view/home_page.dart';
 import '../../features/splash/view/splash_page.dart';
+import '../../features/example/view/example_image.dart';
+import '../../features/example/view/svg_example.dart';
 import '../storage/storage_manager.dart';
 
 /// 路由提供者
@@ -17,7 +19,8 @@ class AppRouter {
   static const String splash = '/';
   static const String login = '/login';
   static const String home = '/home';
-  
+  static const String exampleImage = '/example/image';
+  static const String exampleSvg = '/example/svg';
   static final GoRouter router = GoRouter(
     initialLocation: splash,
     routes: [
@@ -40,6 +43,19 @@ class AppRouter {
         path: home,
         name: 'home',
         builder: (context, state) => const HomePage(),
+      ),
+      // 图片使用示例
+      GoRoute(
+        path: exampleImage,
+        name: 'exampleImage',
+        builder: (context, state) => const ExampleImage(),
+      ),
+      
+      // SVG使用示例
+      GoRoute(
+        path: exampleSvg,
+        name: 'exampleSvg',
+        builder: (context, state) => const SvgExamplePage(),
       ),
     ],
     
@@ -114,6 +130,16 @@ class AppNavigator {
   /// 跳转到主页
   static void toHome() {
     _router.go(AppRouter.home);
+  }
+  
+  /// 跳转到图片使用示例
+  static void pushExampleImage() {
+    _router.push(AppRouter.exampleImage);
+  }
+  
+  /// 跳转到SVG使用示例
+  static void pushExampleSvg() {
+    _router.push(AppRouter.exampleSvg);
   }
   
   /// 退出登录

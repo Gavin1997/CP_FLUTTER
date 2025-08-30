@@ -1,3 +1,10 @@
+/*
+ * @Author: test
+ * @Date: 2025-08-30 13:45:35
+ * @LastEditTime: 2025-08-30 15:54:34
+ * @FilePath: /flutter_starter/lib/bootstrap.dart
+ * @Description: 
+ */
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -39,10 +46,11 @@ Future<void> bootstrap() async {
     
     AppLogger.info('🎉 框架初始化完成，启动应用');
     
+    // 基于390的开发设计图适配
     runApp(
       ProviderScope(
         child: ScreenUtilInit(
-          designSize: const Size(375, 812),
+          designSize: const Size(390, 812),
           minTextAdapt: true,
           splitScreenMode: true,
           builder: (context, child) => const App(),

@@ -9,14 +9,17 @@
 在开始贡献之前，请确保您的开发环境满足以下要求：
 
 **Flutter 环境**
+
 - Flutter SDK >= 3.10.0
 - Dart SDK >= 3.0.0
 
 **开发工具**
+
 - VS Code 或 Android Studio
 - Git
 
 **环境检查**
+
 ```bash
 flutter doctor
 ```
@@ -26,10 +29,10 @@ flutter doctor
 ```bash
 # Fork 项目到您的 GitHub 账户
 # 克隆您 Fork 的项目
-git clone https://github.com/your-username/flutter_rapid_framework.git
+git clone https://github.com/your-username/kxrcp.git
 
 # 进入项目目录
-cd flutter_rapid_framework
+cd kxrcp
 
 # 安装依赖
 flutter pub get
@@ -49,6 +52,7 @@ flutter run
 - `hotfix/*` - 热修复分支，用于紧急修复
 
 **创建功能分支**
+
 ```bash
 # 从 develop 分支创建功能分支
 git checkout develop
@@ -57,6 +61,7 @@ git checkout -b feature/your-feature-name
 ```
 
 **创建修复分支**
+
 ```bash
 # 从 develop 分支创建修复分支
 git checkout develop
@@ -93,35 +98,39 @@ dart format --set-exit-if-changed .
 ### 3. 命名规范
 
 **文件和目录命名**
+
 - 使用小写字母和下划线：`user_profile.dart`
 - 目录名使用单数形式：`widget` 而不是 `widgets`
 
 **类命名**
+
 - 使用大驼峰命名：`UserProfilePage`
 - Widget 类以 Page、View、Dialog 等后缀结尾
 - ViewModel 类以 ViewModel 结尾
 - Service 类以 Service 或 Manager 结尾
 
 **变量和方法命名**
+
 - 使用小驼峰命名：`userName`、`getUserInfo()`
 - 私有成员以下划线开头：`_privateMethod()`
 - 常量使用大写字母和下划线：`API_BASE_URL`
 
 **Provider 命名**
+
 - Provider 变量以 Provider 结尾：`userProfileProvider`
 
 ### 4. 文档注释
 
 为公共 API 提供详细的文档注释：
 
-```dart
+````dart
 /// 用户个人资料页面
-/// 
+///
 /// 显示用户的基本信息，包括头像、姓名、邮箱等。
 /// 用户可以在此页面编辑个人信息。
 class UserProfilePage extends ConsumerStatefulWidget {
   /// 创建用户个人资料页面
-  /// 
+  ///
   /// [userId] 用户ID，如果为 null 则显示当前登录用户的信息
   const UserProfilePage({
     super.key,
@@ -136,11 +145,11 @@ class UserProfilePage extends ConsumerStatefulWidget {
 }
 
 /// 获取用户信息
-/// 
+///
 /// [userId] 用户ID
-/// 
+///
 /// 返回 [UserInfo] 对象，如果用户不存在则抛出 [UserNotFoundException]
-/// 
+///
 /// 示例：
 /// ```dart
 /// try {
@@ -153,7 +162,7 @@ class UserProfilePage extends ConsumerStatefulWidget {
 Future<UserInfo> getUserInfo(String userId) async {
   // 实现
 }
-```
+````
 
 ### 5. 项目结构规范
 
@@ -200,7 +209,7 @@ lib/
 ```dart
 // test/features/auth/login_view_model_test.dart
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_rapid_framework/features/auth/login_view_model.dart';
+import 'package:kxrcp/features/auth/login_view_model.dart';
 
 void main() {
   group('LoginViewModel', () {
@@ -213,7 +222,7 @@ void main() {
     test('登录成功应该更新状态', () async {
       final viewModel = LoginViewModel();
       await viewModel.login('admin', '123456');
-      
+
       expect(viewModel.state.isLoading, false);
       expect(viewModel.state.error, null);
     });
@@ -229,7 +238,7 @@ void main() {
 // test/common/widgets/app_button_test.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_rapid_framework/common/widgets/app_button.dart';
+import 'package:kxrcp/common/widgets/app_button.dart';
 
 void main() {
   group('AppButton', () {
@@ -267,6 +276,7 @@ flutter test --coverage
 ### 4. 测试覆盖率
 
 我们要求：
+
 - 核心业务逻辑测试覆盖率 >= 80%
 - 通用组件测试覆盖率 >= 70%
 - 工具类测试覆盖率 >= 90%
@@ -286,6 +296,7 @@ flutter test --coverage
 ```
 
 **Type 类型**
+
 - `feat`: 新功能
 - `fix`: 修复 bug
 - `docs`: 文档更新
@@ -295,6 +306,7 @@ flutter test --coverage
 - `chore`: 构建过程或辅助工具的变动
 
 **示例**
+
 ```bash
 feat(auth): 添加登录功能
 
@@ -334,9 +346,11 @@ git push origin feature/login-functionality
 
 ```markdown
 ## 变更描述
+
 简要描述这个 PR 的变更内容
 
 ## 变更类型
+
 - [ ] 新功能
 - [ ] Bug 修复
 - [ ] 文档更新
@@ -345,12 +359,14 @@ git push origin feature/login-functionality
 - [ ] 其他
 
 ## 测试
+
 - [ ] 已添加单元测试
 - [ ] 已添加 Widget 测试
 - [ ] 已运行现有测试套件
 - [ ] 已手动测试
 
 ## 检查清单
+
 - [ ] 代码遵循项目的代码规范
 - [ ] 已运行 `flutter analyze` 无警告
 - [ ] 已运行 `dart format` 格式化代码
@@ -358,12 +374,15 @@ git push origin feature/login-functionality
 - [ ] 已添加或更新测试用例
 
 ## 相关 Issue
+
 Closes #(issue number)
 
 ## 截图
+
 如果是 UI 相关的变更，请提供截图
 
 ## 补充说明
+
 其他需要说明的内容
 ```
 
@@ -384,27 +403,33 @@ Closes #(issue number)
 
 ```markdown
 ## Bug 描述
+
 简要描述发现的问题
 
 ## 复现步骤
+
 1. 打开应用
 2. 点击登录
 3. 输入错误密码
 4. 点击提交
 
 ## 期望行为
+
 应该显示错误提示信息
 
 ## 实际行为
+
 应用崩溃
 
 ## 环境信息
+
 - Flutter 版本: 3.10.0
 - Dart 版本: 3.0.0
 - 设备: iPhone 14 (iOS 16.0)
 - 框架版本: 1.0.0
 
 ## 附加信息
+
 - 错误日志
 - 截图
 - 其他相关信息
@@ -418,18 +443,23 @@ Closes #(issue number)
 
 ```markdown
 ## 功能描述
+
 简要描述建议的功能
 
 ## 解决的问题
+
 这个功能解决了什么问题或改进了什么体验
 
 ## 详细描述
+
 详细描述功能的实现方式和用户交互
 
 ## 替代方案
+
 是否考虑过其他替代方案
 
 ## 附加信息
+
 - 相关截图或原型
 - 参考链接
 - 其他说明

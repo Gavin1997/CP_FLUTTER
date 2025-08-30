@@ -3,9 +3,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:flutter_rapid_framework/app.dart';
-import 'package:flutter_rapid_framework/features/login/view_model/login_view_model.dart';
-import 'package:flutter_rapid_framework/common/widgets/app_button.dart';
+import 'package:kxrcp/app.dart';
+import 'package:kxrcp/features/login/view_model/login_view_model.dart';
+import 'package:kxrcp/common/widgets/app_button.dart';
 
 void main() {
   group('App Widget Tests', () {
@@ -14,7 +14,7 @@ void main() {
       await tester.pumpWidget(
         ProviderScope(
           child: ScreenUtilInit(
-            designSize: const Size(375, 812),
+            designSize: const Size(390, 812),
             minTextAdapt: true,
             builder: (context, child) => const App(),
           ),
@@ -151,7 +151,7 @@ void main() {
       await tester.pumpWidget(
         ProviderScope(
           child: ScreenUtilInit(
-            designSize: const Size(375, 812),
+            designSize: const Size(390, 812),
             minTextAdapt: true,
             builder: (context, child) => const App(),
           ),

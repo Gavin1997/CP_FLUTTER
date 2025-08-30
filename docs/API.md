@@ -11,7 +11,7 @@ Flutter Rapid Framework 提供了一套完整的 API 接口，帮助开发者快
 #### 初始化
 
 ```dart
-import 'package:flutter_rapid_framework/core/network/network_manager.dart';
+import 'package:kxrcp/core/network/network_manager.dart';
 
 // 网络管理器会在应用启动时自动初始化
 ```
@@ -63,7 +63,7 @@ final response = await NetworkManager.delete('/api/users/1');
 ```dart
 try {
   final response = await NetworkManager.get('/api/data');
-  
+
   // 检查响应状态
   if (response.statusCode == 200) {
     final data = response.data;
@@ -84,7 +84,7 @@ try {
 **Token 管理**
 
 ```dart
-import 'package:flutter_rapid_framework/core/storage/storage_manager.dart';
+import 'package:kxrcp/core/storage/storage_manager.dart';
 
 // 保存 Token
 await StorageManager.saveToken('your_access_token');
@@ -142,7 +142,7 @@ await StorageManager.clear();
 #### 基本导航
 
 ```dart
-import 'package:flutter_rapid_framework/core/router/app_router.dart';
+import 'package:kxrcp/core/router/app_router.dart';
 
 // 跳转到登录页
 AppNavigator.toLogin();
@@ -154,7 +154,7 @@ AppNavigator.toHome();
 AppNavigator.logout();
 
 // 返回上一页
-AppNavigator.back();
+AppNavigator.pop();
 ```
 
 #### 路由配置
@@ -177,7 +177,7 @@ class AppRoutes {
 #### 基本用法
 
 ```dart
-import 'package:flutter_rapid_framework/core/log/app_logger.dart';
+import 'package:kxrcp/core/log/app_logger.dart';
 
 // Debug 日志（仅在调试模式下输出）
 AppLogger.debug('调试信息');
@@ -210,7 +210,7 @@ AppLogger.fatal('严重错误', error: exception);
 #### 使用主题
 
 ```dart
-import 'package:flutter_rapid_framework/common/themes/app_theme.dart';
+import 'package:kxrcp/common/themes/app_theme.dart';
 
 // 在 MaterialApp 中应用主题
 MaterialApp(
@@ -247,7 +247,7 @@ AppTheme.textHint            // 提示文字色
 #### AppButton 使用
 
 ```dart
-import 'package:flutter_rapid_framework/common/widgets/app_button.dart';
+import 'package:kxrcp/common/widgets/app_button.dart';
 
 // 主要按钮
 AppButton.primary(
@@ -290,12 +290,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class LoginState {
   final bool isLoading;
   final String? error;
-  
+
   const LoginState({
     this.isLoading = false,
     this.error,
   });
-  
+
   LoginState copyWith({bool? isLoading, String? error}) {
     return LoginState(
       isLoading: isLoading ?? this.isLoading,
@@ -307,7 +307,7 @@ class LoginState {
 // 定义 ViewModel
 class LoginViewModel extends StateNotifier<LoginState> {
   LoginViewModel() : super(const LoginState());
-  
+
   Future<void> login(String username, String password) async {
     // 业务逻辑
   }
@@ -327,13 +327,13 @@ class LoginPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final loginState = ref.watch(loginViewModelProvider);
     final loginViewModel = ref.read(loginViewModelProvider.notifier);
-    
+
     return Scaffold(
       body: Column(
         children: [
           if (loginState.isLoading)
             const CircularProgressIndicator(),
-          
+
           ElevatedButton(
             onPressed: () => loginViewModel.login(username, password),
             child: Text('登录'),

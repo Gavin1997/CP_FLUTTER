@@ -1,4 +1,4 @@
-name: flutter_rapid_framework
+name: kxrcp
 description: Flutter 快速开发框架 - 屏蔽重复劳动，统一开发规范，提升开发效率
 version: 1.0.0+1
 
@@ -27,6 +27,7 @@ dependencies:
   
   # UI组件
   flutter_screenutil: ^5.9.0
+  flutter_svg: ^2.0.9
   
   # 工具类
   logger: ^2.0.2+1
@@ -54,13 +55,13 @@ flutter:
   
   assets:
     - assets/images/
+    - assets/images/bar/
     - assets/icons/
-  
-#  fonts:
-#    - family: PingFang
-#      fonts:
-#        - asset: assets/fonts/PingFang-Regular.ttf
-#        - asset: assets/fonts/PingFang-Medium.ttf
-#          weight: 500
-#        - asset: assets/fonts/PingFang-Bold.ttf
-#          weight: 700
+
+  fonts:
+    - family: PingFang
+      fonts:
+        - asset: assets/fonts/PingFang-Regular.ttf
+          weight: 500
+        - asset: assets/fonts/PingFang-Bold.ttf
+          weight: 700

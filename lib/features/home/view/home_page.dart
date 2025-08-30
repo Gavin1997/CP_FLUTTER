@@ -144,6 +144,22 @@ class _HomePageState extends ConsumerState<HomePage> {
                       // TODO: 跳转到帮助页面
                     },
                   ),
+                  _buildFeatureCard(
+                    icon: Icons.image_outlined,
+                    title: '图片使用示例',
+                    subtitle: '查看图片使用示例',
+                    onTap: () {
+                      AppNavigator.pushExampleImage();
+                    },
+                  ),
+                  _buildFeatureCard(
+                    icon: Icons.image_outlined,
+                    title: 'SVG使用示例',
+                    subtitle: '查看SVG使用示例',
+                    onTap: () {
+                      AppNavigator.pushExampleSvg();
+                    },
+                  ),
                 ],
               ),
             ),

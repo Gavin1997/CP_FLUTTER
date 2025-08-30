@@ -1,3 +1,10 @@
+/*
+ * @Author: test
+ * @Date: 2025-08-30 13:45:35
+ * @LastEditTime: 2025-08-30 18:12:17
+ * @FilePath: /flutter_starter/lib/features/login/view/login_page.dart
+ * @Description: 
+ */
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -47,24 +54,28 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                 Center(
                   child: Column(
                     children: [
+                       Text(
+                        '欢迎回到磕星人',
+                        style: Theme.of(context).textTheme.headlineMedium,
+                      ),
+                      SizedBox(height: 20.h),
                       Container(
-                        width: 80.w,
-                        height: 80.h,
+                        width: 100.w,
+                        height: 100.h,
                         decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.primary,
-                          borderRadius: BorderRadius.circular(16.r),
+                          color: Theme.of(context).colorScheme.surface,
+                          borderRadius: BorderRadius.circular(14.r),
+                          
                         ),
-                        child: Icon(
-                          Icons.flash_on,
-                          size: 40.sp,
-                          color: Colors.white,
+                        child: Image.asset(
+                          'assets/images/logo.png',
+                          width: 50.w,
+                          height: 50.h,
+                          fit: BoxFit.contain,
                         ),
                       ),
-                      SizedBox(height: 24.h),
-                      Text(
-                        '欢迎回来',
-                        style: Theme.of(context).textTheme.displaySmall,
-                      ),
+                   
+                     
                       SizedBox(height: 8.h),
                       Text(
                         '请登录您的账户',

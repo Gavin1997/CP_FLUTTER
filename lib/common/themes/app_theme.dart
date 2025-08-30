@@ -4,14 +4,43 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 /// 应用主题配置
 class AppTheme {
   // 主色调
-  static const Color primaryColor = Color(0xFF2196F3);
-  static const Color primaryColorDark = Color(0xFF1976D2);
-  static const Color primaryColorLight = Color(0xFFBBDEFB);
+  static const Color primaryColor = Color(0xFFED99DE);
+  static const Color primaryColorDark = Color(0xFFED99DE);
+  static const Color primaryColorLight = Color(0xFFFDD6FE);
   
   // 辅助色
   static const Color accentColor = Color(0xFFFF4081);
   static const Color backgroundColor = Color(0xFFF5F5F5);
   static const Color surfaceColor = Colors.white;
+  
+  // 渐变色
+  static const LinearGradient primaryGradient = LinearGradient(
+    colors: [Color(0xFF2196F3), Color(0xFF1976D2)],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+  );
+  
+  static const LinearGradient accentGradient = LinearGradient(
+    colors: [Color(0xFFFF4081), Color(0xFFE91E63)],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+  );
+  
+  static const LinearGradient softGradient = LinearGradient(
+    colors: [Color(0xFFE3F2FD), Color(0xFFBBDEFB)],
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+  );
+  
+  // 容器背景色选项
+  static const Color containerPrimary = Color(0xFFE3F2FD);
+  static const Color containerSecondary = Color(0xFFF3E5F5);
+  static const Color containerAccent = Color(0xFFFCE4EC);
+  static const Color containerNeutral = Color(0xFFF5F5F5);
+  
+  // 阴影色
+  static const Color shadowLight = Color(0x1A000000);
+  static const Color shadowMedium = Color(0x33000000);
   
   // 文字颜色
   static const Color textPrimary = Color(0xFF212121);
